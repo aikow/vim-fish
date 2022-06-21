@@ -2,9 +2,9 @@ autocmd BufRead,BufNewFile *.fish setfiletype fish
 
 " Detect fish scripts by the shebang line.
 autocmd BufRead *
-            \ if getline(1) =~# '\v^#!%(\f*/|/usr/bin/env\s*<)fish>' |
-            \     setlocal filetype=fish |
-            \ endif
+      \ if getline(1) =~# '\v^#!%(\f*/|/usr/bin/env\s*<)fish>' |
+      \     setlocal filetype=fish |
+      \ endif
 
 " Move cursor to first empty line when using funced.
 autocmd BufRead fish_funced_*_*.fish call search('^$')
@@ -17,7 +17,4 @@ autocmd BufRead,BufNewFile ~/.config/fish/fishd.* setlocal readonly
 
 " Mimic `funced` when manually creating functions.
 autocmd BufNewFile ~/.config/fish/functions/*.fish
-            \ call append(0, ['function '.expand('%:t:r'),
-                             \'',
-                             \'end']) |
-            \ 2
+      \ call append(0, ['function '.expand('%:t:r'), '', 'end']) | 2
